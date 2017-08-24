@@ -25,7 +25,7 @@ int main()
 		std::ofstream outFile ( "raspicam_image.ppm",std::ios::binary );
 		outFile << "P6\n"<<Camera.getWidth() << " " << Camera.getHeight() << " 255\n";
 		outFile.write ( ( char* ) data, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_RGB ) );
-		cout << "Image saved at raspicam_image.ppm" << endl;
+		std::cout << "Image saved at raspicam_image.ppm" << std::endl;
 		//free resrources    
 		delete data;
 		return 0;
