@@ -14,7 +14,6 @@ int main()
 		}
 		//wait a while until camera stabilizes
 		std::cout << "Sleeping for 3 secs" << std::endl;
-		sleep(3);
 		//capture
 		Camera.grab();
 		//allocate memory
