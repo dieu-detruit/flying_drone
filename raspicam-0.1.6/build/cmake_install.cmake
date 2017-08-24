@@ -1,4 +1,4 @@
-# Install script for directory: /Users/dieu_detruit/flying_drone/raspicam-0.1.6
+# Install script for directory: /home/pi/flying_drone/raspicam-0.1.6
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,18 +27,23 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake" TYPE FILE FILES "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/Findraspicam.cmake")
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake" TYPE FILE FILES "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/raspicamConfig.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake" TYPE FILE FILES "/home/pi/flying_drone/raspicam-0.1.6/build/Findraspicam.cmake")
+endif()
+
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake" TYPE FILE FILES "/home/pi/flying_drone/raspicam-0.1.6/build/raspicamConfig.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/src/cmake_install.cmake")
-  include("/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/utils/cmake_install.cmake")
+  include("/home/pi/flying_drone/raspicam-0.1.6/build/src/cmake_install.cmake")
+  include("/home/pi/flying_drone/raspicam-0.1.6/build/utils/cmake_install.cmake")
 
 endif()
 
@@ -50,5 +55,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pi/flying_drone/raspicam-0.1.6/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

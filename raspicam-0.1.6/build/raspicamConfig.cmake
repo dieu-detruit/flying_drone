@@ -22,11 +22,11 @@
 INCLUDE_DIRECTORIES(;/usr/local/include)
 LINK_DIRECTORIES("/usr/local/lib")
 
-SET(raspicam_LIBS  raspicam) 
+SET(raspicam_LIBS /opt/vc/lib/libmmal_core.so;/opt/vc/lib/libmmal_util.so;/opt/vc/lib/libmmal.so raspicam) 
 SET(raspicam_FOUND "YES") 
 
-SET(raspicam_CV_FOUND  "YES")
-SET(raspicam_CV_LIBS  raspicam opencv_videostab;opencv_video;opencv_ts;opencv_superres;opencv_stitching;opencv_photo;opencv_ocl;opencv_objdetect;opencv_nonfree;opencv_ml;opencv_legacy;opencv_imgproc;opencv_highgui;opencv_gpu;opencv_flann;opencv_features2d;opencv_core;opencv_contrib;opencv_calib3d raspicam_cv)
+SET(raspicam_CV_FOUND  "")
+SET(raspicam_CV_LIBS /opt/vc/lib/libmmal_core.so;/opt/vc/lib/libmmal_util.so;/opt/vc/lib/libmmal.so raspicam  raspicam_cv)
 
 SET(raspicam_VERSION        0.1.6)
 SET(raspicam_VERSION_MAJOR  0)

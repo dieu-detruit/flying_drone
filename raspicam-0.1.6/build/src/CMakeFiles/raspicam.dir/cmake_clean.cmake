@@ -4,11 +4,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/raspicam.dir/private/private_impl.cpp.o"
   "CMakeFiles/raspicam.dir/private/threadcondition.cpp.o"
   "CMakeFiles/raspicam.dir/private_still/private_still_impl.cpp.o"
-  "CMakeFiles/raspicam.dir/private/fake_mmal_dependencies.cpp.o"
   "libraspicam.pdb"
-  "libraspicam.0.1.6.dylib"
-  "libraspicam.dylib"
-  "libraspicam.0.1.dylib"
+  "libraspicam.so"
+  "libraspicam.so.0.1.6"
+  "libraspicam.so.0.1"
 )
 
 # Per-language clean rules from dependency scanning.

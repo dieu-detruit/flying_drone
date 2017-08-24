@@ -1,4 +1,4 @@
-# Install script for directory: /Users/dieu_detruit/flying_drone/raspicam-0.1.6/src
+# Install script for directory: /home/pi/flying_drone/raspicam-0.1.6/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,48 +27,51 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "main" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE FILES
-    "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/src/libraspicam.0.1.6.dylib"
-    "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/src/libraspicam.0.1.dylib"
-    "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/src/libraspicam.dylib"
-    )
   foreach(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.0.1.6.dylib"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.0.1.dylib"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.dylib"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.so.0.1.6"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.so.0.1"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.so"
       )
     if(EXISTS "${file}" AND
        NOT IS_SYMLINK "${file}")
-      execute_process(COMMAND "/usr/bin/install_name_tool"
-        -id "libraspicam.0.1.dylib"
-        "${file}")
+      file(RPATH_CHECK
+           FILE "${file}"
+           RPATH "")
+    endif()
+  endforeach()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE FILES
+    "/home/pi/flying_drone/raspicam-0.1.6/build/src/libraspicam.so.0.1.6"
+    "/home/pi/flying_drone/raspicam-0.1.6/build/src/libraspicam.so.0.1"
+    "/home/pi/flying_drone/raspicam-0.1.6/build/src/libraspicam.so"
+    )
+  foreach(file
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.so.0.1.6"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.so.0.1"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam.so"
+      )
+    if(EXISTS "${file}" AND
+       NOT IS_SYMLINK "${file}")
+      file(RPATH_CHANGE
+           FILE "${file}"
+           OLD_RPATH "/opt/vc/lib:"
+           NEW_RPATH "")
       if(CMAKE_INSTALL_DO_STRIP)
-        execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" "${file}")
+        execute_process(COMMAND "/usr/bin/strip" "${file}")
       endif()
     endif()
   endforeach()
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "main" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE FILES "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/src/libraspicam_cv.dylib")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam_cv.dylib" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam_cv.dylib")
-    execute_process(COMMAND "/usr/bin/install_name_tool"
-      -id "libraspicam_cv.dylib"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam_cv.dylib")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraspicam_cv.dylib")
-    endif()
-  endif()
-endif()
-
-if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "main" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/raspicam" TYPE FILE FILES
-    "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/src/raspicamtypes.h"
-    "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/src/raspicam.h"
-    "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/src/raspicam_cv.h"
-    "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/src/raspicam_still_cv.h"
+    "/home/pi/flying_drone/raspicam-0.1.6/src/raspicamtypes.h"
+    "/home/pi/flying_drone/raspicam-0.1.6/src/raspicam.h"
     )
 endif()
 

@@ -2,17 +2,17 @@
 # File that provides "make uninstall" target
 #  We use the file 'install_manifest.txt'
 # -----------------------------------------------
-IF(NOT EXISTS "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/install_manifest.txt")
-  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/install_manifest.txt\"")
-ENDIF(NOT EXISTS "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/install_manifest.txt")
+IF(NOT EXISTS "/home/pi/flying_drone/raspicam-0.1.6/build/install_manifest.txt")
+  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"/home/pi/flying_drone/raspicam-0.1.6/build/install_manifest.txt\"")
+ENDIF(NOT EXISTS "/home/pi/flying_drone/raspicam-0.1.6/build/install_manifest.txt")
 
-FILE(READ "/Users/dieu_detruit/flying_drone/raspicam-0.1.6/build/install_manifest.txt" files)
+FILE(READ "/home/pi/flying_drone/raspicam-0.1.6/build/install_manifest.txt" files)
 STRING(REGEX REPLACE "\n" ";" files "${files}")
 FOREACH(file ${files})
   MESSAGE(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
 #  IF(EXISTS "$ENV{DESTDIR}${file}")
 #    EXEC_PROGRAM(
-#      "/usr/local/Cellar/cmake/3.9.0/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+#      "/usr/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
 #      OUTPUT_VARIABLE rm_out
 #      RETURN_VALUE rm_retval
 #      )
