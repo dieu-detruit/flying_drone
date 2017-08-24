@@ -1,17 +1,17 @@
-nclude <ctime>
+#include <ctime>
 #include <fstream>
 #include <iostream>
+#include <wiringPi.h>
 #include <raspicam/raspicam.h>
-using namespace std;
  
 int main ( int argc,char **argv )
 {
 	    raspicam::RaspiCam Camera; //Cmaera object
 		//Open camera 
-		cout<<"Opening Camera..."<<endl;
+		std::cout<<"Opening Camera..."<<std::endl;
 		if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
 		//wait a while until camera stabilizes
-		cout<<"Sleeping for 3 secs"<<endl;
+		std::cout<<"Sleeping for 3 secs"<<std::endl;
 		sleep(3);
 		//capture
 		Camera.grab();
